@@ -5,7 +5,7 @@ import { Button, Header, Segment } from "semantic-ui-react";
 import LoadingComponent from "../../../app/layout/LoadingComponent";
 import { useStore } from "../../../app/stores/store";
 import { v4 as uuid } from "uuid";
-import { useNavigate } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import MyTextInput from "../../../app/common/form/MyTextInput";
@@ -25,7 +25,7 @@ export default observer(function ActivityForm() {
     loadingInitial,
   } = activityStore;
   const { id } = useParams<{ id: string }>();
-  const navigate = useNavigate();
+  const history = useHistory();
 
   const [activity, setActivity] = useState<Activity>({
     id: "",
@@ -71,11 +71,11 @@ export default observer(function ActivityForm() {
         id: uuid(),
       };
       createActivity(newActivity).then(() =>
-        navigate(`/activities/${newActivity.id}`)
+        history.push(`/activities/${newActivity.id}`)
       );
     } else {
       updateActivity(activity).then(() =>
-        navigate(`/activities/${activity.id}`)
+        history.push(`/activities/${activity.id}`)
       );
     }
   }

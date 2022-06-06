@@ -52,7 +52,7 @@ axios.interceptors.response.use(
         break;
       case 500:
         store.commonStore.setServerError(data);
-        toast.error("server error");
+        history.push("/server-error");
         break;
     }
     return Promise.reject(error);

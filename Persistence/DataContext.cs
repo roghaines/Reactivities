@@ -28,7 +28,7 @@ namespace Persistence
 
             builder.Entity<ActivityAttendee>()
                 .HasOne(u => u.Activity)
-                .WithMany(a => a.Attendeeds)
+                .WithMany(a => a.Attendees)
                 .HasForeignKey(aa => aa.ActivityId);
         }
     }

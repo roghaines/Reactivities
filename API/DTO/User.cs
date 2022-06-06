@@ -7,7 +7,7 @@ namespace API.DTO
 {
     public class User
     {
-        public string DiplayName { get; set; }
+        public string DisplayName { get; set; }
 
         public string Token { get; set; }
 
